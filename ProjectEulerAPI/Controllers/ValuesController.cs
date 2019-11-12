@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProjectEulerAPI.Services;
 
 namespace ProjectEulerAPI.Controllers
 {
@@ -10,6 +11,13 @@ namespace ProjectEulerAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private EulerService _eulerService;
+
+        public ValuesController()
+        {
+            this._eulerService = new EulerService();
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -19,9 +27,9 @@ namespace ProjectEulerAPI.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public int Get(int id)
         {
-            return "value";
+            return this._eulerService._2();
         }
 
         // POST api/values
