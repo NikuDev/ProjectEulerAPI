@@ -30,12 +30,7 @@ namespace ProjectEulerAPI.Controllers
         [HttpGet("{id}")]
         public int Get(int id)
         {
-            if (id == 1)
-                return this._eulerService._1();
-            else if (id == 2)
-                return this._eulerService._2();
-
-            return 00000;
+            return this._eulerService.GetResultForEulerProblem(id);
         }
     }
 }
